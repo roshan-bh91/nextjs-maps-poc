@@ -36,7 +36,8 @@ const getListOfHotelsApiCall = async ({
               localStorage.removeItem("access_token");
               localStorage.setItem(
                 "access_token",
-                responseForNewAccessToken?.access_token
+                //@ts-ignore
+                responseForNewAccessToken?.access_token ?? ""
               );
             }
           },
