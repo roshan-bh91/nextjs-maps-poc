@@ -3,7 +3,11 @@ import { ApiResponse } from "@/types/getHotelList.type";
 import { UseQueryOptions, useQuery } from "@tanstack/react-query";
 import ky, { HTTPError } from "ky";
 
-const getListOfHotelsApiCall = async ({ queryKey }) => {
+const getListOfHotelsApiCall = async ({
+  queryKey,
+}: {
+  queryKey: Array<string>;
+}) => {
   const response = await ky.get(
     `https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=${queryKey[1]}&radius=5&radiusUnit=KM&hotelSource=ALL`,
     {
